@@ -1,0 +1,6 @@
+include README.rst
+include LICENSE
+recursive-include aitertools *
+recursive-exclude aitertools *.pyc
+recursive-exclude aitertools *.pyd
+recursive-exclude aitertools *.pyo

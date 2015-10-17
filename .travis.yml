@@ -1,0 +1,17 @@
+language: python
+sudo: false
+python:
+  - "3.5"
+  - "3.5-dev"
+  - "nightly"
+install:
+    - pip install -r test-requirements.txt
+    - pip install -e ./
+script:
+    - if [[ ! "$(python --version 2>&1)" =~ Python\ (3\.6.*) ]]; then pep8 aitertools/; fi
+    - if [[ ! "$(python --version 2>&1)" =~ Python\ (3\.6.*) ]]; then pep8 tests/; fi
+    - pep257 aitertools/
+    - pep257 tests/
+    - pyflakes aitertools/
+    - pyflakes tests/
+    - py.test tests/
