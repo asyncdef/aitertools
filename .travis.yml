@@ -10,8 +10,8 @@ install:
 script:
     - if [[ ! "$(python --version 2>&1)" =~ Python\ (3\.6.*) ]]; then pep8 aitertools/; fi
     - if [[ ! "$(python --version 2>&1)" =~ Python\ (3\.6.*) ]]; then pep8 tests/; fi
-    - pep257 aitertools/
-    - pep257 tests/
+    - pep257 --add-select=D203 --add-ignore=D211 aitertools/
+    - pep257 --add-select=D203 --add-ignore=D211 tests/
     - pyflakes aitertools/
     - pyflakes tests/
     - py.test tests/
